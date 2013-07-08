@@ -1,0 +1,367 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Sample Menu List</title>
+<link href="reset.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./jquery.min.js"></script>
+<style>
+/* sayid theme design -> std_ */
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+body,html{background-color:#282828;}
+header{width:100%;height:150px;border-bottom:1px solid #444;padding-top:1px;margin-bottom:10px;}
+.std_Sperator{width:100%;height:15px;}
+.std_container{width:920px;margin:0 auto;}
+.std_rightContent{width:190px;height:400px;float:right;background-color:#282828;box-shadow:0 0 5px #000;}
+.std_leftContent{width:720px;min-height:770px;background-color:#DBDBDB;box-shadow:0 0 5px #000;position:relative;}
+.std_alphabetLeft,.std_themebarRight{height:100%;background-color:#282828;position:absolute;top:0;z-index:10;}
+.std_alphabetLeft{width:30px;left:0;border-right:1px solid #c0c0c0;}
+.std_themebarRight{width:5px;right:0;border-left:1px solid #c0c0c0;}
+.std_alphabetLeft a{
+	text-decoration:none;
+	color:#71838e;
+	text-shadow:0 0 2px #000;
+	font-family: 'Lato', 'Helvetica Neue', verdana;
+	font-size:14px;
+	margin:6px 0;
+	width:30px;
+	display:inline-block;
+	text-align:center;
+}
+.std_alphabetLeft a:hover{color:#acacac;}
+.std_content{width:685px;margin-left:30px;}
+.std_groupHeaderBox{height:20px;width:100%;position:relative;margin:11px 0;}
+.std_groupUnderLine{position:absolute;top:9px;left:0;width:100%;border-top:1px solid #8b8c90;border-bottom:1px solid #f9f9fb;}
+.std_groupHeader{
+	position:absolute;
+	height:20px;
+	width:calc( 100% - 60px );
+	top:0;
+	left:30px;
+	border-radius:3px;
+	cursor:url(./arrow.png),pointer;
+	box-shadow:0 0 3px rgba(0,0,0,0.3);
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top, #ffffff 0%, #ebebed 50%, #edeef0 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(50%,#ebebed), color-stop(100%,#edeef0)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ffffff 0%,#ebebed 50%,#edeef0 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ffffff 0%,#ebebed 50%,#edeef0 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ffffff 0%,#ebebed 50%,#edeef0 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #ffffff 0%,#ebebed 50%,#edeef0 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edeef0',GradientType=0 ); /* IE6-9 */
+}
+.std_groupHeader:hover{box-shadow:0 0 5px rgba(0,0,0,0.3);}
+.std_groupHeaderHolder{height:100%;width:100%;position:relative;}
+.std_groupInnerLine{position:absolute;top:9px;left:0;width:100%;border-top:1px solid #DEDFE1;border-bottom:1px solid #F1F2F4;}
+.std_groupTitle{
+	text-transform:uppercase;
+	font-family: 'Lato', 'Helvetica Neue', verdana;
+	font-size:13px;
+	color:#959BA4;
+	text-shadow:0 1px 1px #fff;
+	position:absolute;
+	top:4px;
+	left:15px;
+}
+.std_productLine{height:80px;width:100%;margin-bottom:10px;}
+.std_productBox{
+	cursor:pointer;
+	height:80px;
+	width: calc(100% - 40px);
+	position:relative;
+	left:20px;
+	padding-top:1px;
+	border-radius:2px;
+	box-shadow:0 0 3px rgba(0,0,0,0.3);
+	background: #f1f1f1; /* Old browsers */
+	background: -moz-linear-gradient(top, #f1f1f1 0%, #f5f5f5 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f1f1f1), color-stop(100%,#f5f5f5)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #f1f1f1 0%,#f5f5f5 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #f1f1f1 0%,#f5f5f5 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #f1f1f1 0%,#f5f5f5 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #f1f1f1 0%,#f5f5f5 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1f1', endColorstr='#f5f5f5',GradientType=0 ); /* IE6-9 */
+	transition:width 0.3s, height 0.3s;
+	-moz-transition:width 0.3s, height 0.3s, -moz-transform 0.3s; /* Firefox 4 */
+	-webkit-transition:width 0.3s, height 0.3s, -webkit-transform 0.3s; /* Safari and Chrome */
+	-o-transition:width 0.3s, height 0.3s, -o-transform 0.3s; /* Opera */
+}
+.std_productBox:hover{
+	box-shadow:0 0 5px rgba(0,0,0,0.3);
+	transform: scale(1.02);
+	-moz-transform: scale(1.02);
+	-webkit-transform: scale(1.02);
+	-o-transform: scale(1.02);
+}
+.std_imageHolder{
+	height:70px;
+	width:80px;
+	background-color:#fff;
+	border-radius:2px;
+	box-shadow:0 0 3px rgba(0,0,0,0.3);
+	margin:4px 0 0 5px;
+	padding-top:1px;
+}
+.std_imageHolder img{margin:3px 0 0 4px;}
+.std_productDetail{
+	position:absolute;
+	top:10px;
+	left:100px;
+	height:60px;
+	font-family: 'Lato', 'Helvetica Neue', verdana;
+	color:#6a6a6a;
+}
+.std_productTitle{font-size:16px;}
+.std_productDescription{font-size:14px;margin-top:12px;}
+.std_productInformation{font-size:12px;color:#87ba53;margin-top:4px;}
+.std_statisticsBox{position:absolute;right:10px;top:3px;height:80px;}
+.std_statisLine{height:10px;min-width:100px;padding:4px 0;}
+.std_statisImg{width:16px;height:12px;background-image:url(./std_ico.png);float:right;}
+.std_reg .std_statisImg{}
+.std_view .std_statisImg{background-position:0 -12px;}
+.std_like .std_statisImg{background-position:0 -24px;}
+.std_dislike .std_statisImg{background-position:0 12px;}
+.std_statisNo{font-family:verdana;font-size:11px;color:#6a6a6a;float:right;margin-right:10px;}
+</style>
+<script>
+</script>
+</head>
+<body>
+	<header>
+    	<div class="std_container">
+        </div>
+    </header>
+    <div class="std_container">
+    	<div class="std_rightContent"></div>
+        <div class="std_leftContent">
+        	<div class="std_alphabetLeft">
+            	<div class="std_Sperator"></div>
+                <a href="javascript:void(0);">A</a>
+                <a href="javascript:void(0);">B</a>
+                <a href="javascript:void(0);">C</a>
+                <a href="javascript:void(0);">D</a>
+                <a href="javascript:void(0);">E</a>
+                <a href="javascript:void(0);">F</a>
+                <a href="javascript:void(0);">G</a>
+                <a href="javascript:void(0);">H</a>
+                <a href="javascript:void(0);">I</a>
+                <a href="javascript:void(0);">J</a>
+                <a href="javascript:void(0);">K</a>
+                <a href="javascript:void(0);">L</a>
+                <a href="javascript:void(0);">M</a>
+                <a href="javascript:void(0);">N</a>
+                <a href="javascript:void(0);">O</a>
+                <a href="javascript:void(0);">P</a>
+                <a href="javascript:void(0);">Q</a>
+                <a href="javascript:void(0);">R</a>
+                <a href="javascript:void(0);">S</a>
+                <a href="javascript:void(0);">T</a>
+                <a href="javascript:void(0);">U</a>
+                <a href="javascript:void(0);">V</a>
+                <a href="javascript:void(0);">W</a>
+                <a href="javascript:void(0);">X</a>
+                <a href="javascript:void(0);">Y</a>
+                <a href="javascript:void(0);">Z</a>
+            </div>
+            <div class="std_themebarRight"></div>
+            <div class="std_content">
+            	<div class="std_Sperator"></div>
+            	<div class="std_groupHeaderBox">
+                	<div class="std_groupUnderLine"></div>
+                    <div class="std_groupHeader" onClick="$('#std_box_3814').slideToggle(300);">
+                    	<div class="std_groupHeaderHolder">
+                        	<div class="std_groupInnerLine"></div>
+                            <div class="std_groupTitle">american singer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="std_productGroupBox" id="std_box_3814">
+                    <div class="std_productLine">
+                        <div class="std_productBox">
+                            <div class="std_imageHolder"><img style="display:block;" src="./taylor.jpg" width="72" height="62"></div>
+                            <div class="std_productDetail">
+                                <div class="std_productTitle">Taylor Swift</div>
+                                <div class="std_productDescription">Last Album : Red 2012</div>
+                                <div class="std_productInformation">American Singer-Songwriter, Born on December 13, 1989</div>
+                            </div>
+                            <div class="std_statisticsBox">
+                                <div class="std_statisLine std_reg"><div class="std_statisImg"></div><div class="std_statisNo">2013-07-08</div></div>
+                                <div class="std_statisLine std_view"><div class="std_statisImg"></div><div class="std_statisNo">1,145,102</div></div>
+                                <div class="std_statisLine std_like"><div class="std_statisImg"></div><div class="std_statisNo">450,322,11</div></div>
+                                <div class="std_statisLine std_dislike"><div class="std_statisImg"></div><div class="std_statisNo">0</div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="std_productLine">
+                        <div class="std_productBox">
+                            <div class="std_imageHolder"><img style="display:block;" src="./defualtProduct.jpg" width="72" height="62"></div>
+                            <div class="std_productDetail">
+                                <div class="std_productTitle">Title</div>
+                                <div class="std_productDescription">Product Description</div>
+                                <div class="std_productInformation">Product Information</div>
+                            </div>
+                            <div class="std_statisticsBox">
+                                <div class="std_statisLine std_reg"><div class="std_statisImg"></div><div class="std_statisNo">2012-01-01</div></div>
+                                <div class="std_statisLine std_view"><div class="std_statisImg"></div><div class="std_statisNo">111,111,111</div></div>
+                                <div class="std_statisLine std_like"><div class="std_statisImg"></div><div class="std_statisNo">111,111</div></div>
+                                <div class="std_statisLine std_dislike"><div class="std_statisImg"></div><div class="std_statisNo">111,111</div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="std_productLine">
+                        <div class="std_productBox">
+                            <div class="std_imageHolder"><img style="display:block;" src="./defualtProduct.jpg" width="72" height="62"></div>
+                            <div class="std_productDetail">
+                                <div class="std_productTitle">Title</div>
+                                <div class="std_productDescription">Product Description</div>
+                                <div class="std_productInformation">Product Information</div>
+                            </div>
+                            <div class="std_statisticsBox">
+                                <div class="std_statisLine std_reg"><div class="std_statisImg"></div><div class="std_statisNo">2012-01-01</div></div>
+                                <div class="std_statisLine std_view"><div class="std_statisImg"></div><div class="std_statisNo">111,111,111</div></div>
+                                <div class="std_statisLine std_like"><div class="std_statisImg"></div><div class="std_statisNo">111,111</div></div>
+                                <div class="std_statisLine std_dislike"><div class="std_statisImg"></div><div class="std_statisNo">111,111</div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="std_productLine">
+                        <div class="std_productBox">
+                            <div class="std_imageHolder"><img style="display:block;" src="./defualtProduct.jpg" width="72" height="62"></div>
+                            <div class="std_productDetail">
+                                <div class="std_productTitle">Title</div>
+                                <div class="std_productDescription">Product Description</div>
+                                <div class="std_productInformation">Product Information</div>
+                            </div>
+                            <div class="std_statisticsBox">
+                                <div class="std_statisLine std_reg"><div class="std_statisImg"></div><div class="std_statisNo">2012-01-01</div></div>
+                                <div class="std_statisLine std_view"><div class="std_statisImg"></div><div class="std_statisNo">111,111,111</div></div>
+                                <div class="std_statisLine std_like"><div class="std_statisImg"></div><div class="std_statisNo">111,111</div></div>
+                                <div class="std_statisLine std_dislike"><div class="std_statisImg"></div><div class="std_statisNo">111,111</div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="std_productLine">
+                        <div class="std_productBox">
+                            <div class="std_imageHolder"><img style="display:block;" src="./defualtProduct.jpg" width="72" height="62"></div>
+                            <div class="std_productDetail">
+                                <div class="std_productTitle">Title</div>
+                                <div class="std_productDescription">Product Description</div>
+                                <div class="std_productInformation">Product Information</div>
+                            </div>
+                            <div class="std_statisticsBox">
+                                <div class="std_statisLine std_reg"><div class="std_statisImg"></div><div class="std_statisNo">2012-01-01</div></div>
+                                <div class="std_statisLine std_view"><div class="std_statisImg"></div><div class="std_statisNo">111,111,111</div></div>
+                                <div class="std_statisLine std_like"><div class="std_statisImg"></div><div class="std_statisNo">111,111</div></div>
+                                <div class="std_statisLine std_dislike"><div class="std_statisImg"></div><div class="std_statisNo">111,111</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="std_groupHeaderBox">
+                	<div class="std_groupUnderLine"></div>
+                    <div class="std_groupHeader" onClick="$('#std_box_3815').slideToggle(300);">
+                    	<div class="std_groupHeaderHolder">
+                        	<div class="std_groupInnerLine"></div>
+                            <div class="std_groupTitle">iranian singer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="std_productGroupBox" id="std_box_3815">
+                    <div class="std_productLine">
+                        <div class="std_productBox">
+                            <div class="std_imageHolder"><img style="display:block;" src="./arash.jpg" width="72" height="62"></div>
+                            <div class="std_productDetail">
+                                <div class="std_productTitle">Arash Labaf</div>
+                                <div class="std_productDescription">Last Album : Donya 2008</div>
+                                <div class="std_productInformation">Iranian-Swedish singer, entertainer and producer,Born on April 23, 1977 </div>
+                            </div>
+                            <div class="std_statisticsBox">
+                                <div class="std_statisLine std_reg"><div class="std_statisImg"></div><div class="std_statisNo">2013-07-08</div></div>
+                                <div class="std_statisLine std_view"><div class="std_statisImg"></div><div class="std_statisNo">0</div></div>
+                                <div class="std_statisLine std_like"><div class="std_statisImg"></div><div class="std_statisNo">1,406,299</div></div>
+                                <div class="std_statisLine std_dislike"><div class="std_statisImg"></div><div class="std_statisNo">0</div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="std_productLine">
+                        <div class="std_productBox">
+                            <div class="std_imageHolder"><img style="display:block;" src="./defualtProduct.jpg" width="72" height="62"></div>
+                            <div class="std_productDetail">
+                                <div class="std_productTitle">Title</div>
+                                <div class="std_productDescription">Description</div>
+                                <div class="std_productInformation">Information</div>
+                            </div>
+                            <div class="std_statisticsBox">
+                                <div class="std_statisLine std_reg"><div class="std_statisImg"></div><div class="std_statisNo">Registred Date</div></div>
+                                <div class="std_statisLine std_view"><div class="std_statisImg"></div><div class="std_statisNo">Google Plus Follower</div></div>
+                                <div class="std_statisLine std_like"><div class="std_statisImg"></div><div class="std_statisNo">Facebook Like</div></div>
+                                <div class="std_statisLine std_dislike"><div class="std_statisImg"></div><div class="std_statisNo">0</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="std_groupHeaderBox">
+                	<div class="std_groupUnderLine"></div>
+                    <div class="std_groupHeader" onClick="$('#std_box_3816').slideToggle(300);">
+                    	<div class="std_groupHeaderHolder">
+                        	<div class="std_groupInnerLine"></div>
+                            <div class="std_groupTitle">other</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="std_productGroupBox" id="std_box_3816">
+                    <div class="std_productLine">
+                        <div class="std_productBox">
+                            <div class="std_imageHolder"><img style="display:block;" src="./defualtProduct.jpg" width="72" height="62"></div>
+                            <div class="std_productDetail">
+                                <div class="std_productTitle">Title</div>
+                                <div class="std_productDescription">Product Description</div>
+                                <div class="std_productInformation">Product Information</div>
+                            </div>
+                            <div class="std_statisticsBox">
+                                <div class="std_statisLine std_reg"><div class="std_statisImg"></div><div class="std_statisNo">2012-01-01</div></div>
+                                <div class="std_statisLine std_view"><div class="std_statisImg"></div><div class="std_statisNo">111,111,111</div></div>
+                                <div class="std_statisLine std_like"><div class="std_statisImg"></div><div class="std_statisNo">111,111</div></div>
+                                <div class="std_statisLine std_dislike"><div class="std_statisImg"></div><div class="std_statisNo">111,111</div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="std_productLine">
+                        <div class="std_productBox">
+                            <div class="std_imageHolder"><img style="display:block;" src="./defualtProduct.jpg" width="72" height="62"></div>
+                            <div class="std_productDetail">
+                                <div class="std_productTitle">Title</div>
+                                <div class="std_productDescription">Product Description</div>
+                                <div class="std_productInformation">Product Information</div>
+                            </div>
+                            <div class="std_statisticsBox">
+                                <div class="std_statisLine std_reg"><div class="std_statisImg"></div><div class="std_statisNo">2012-01-01</div></div>
+                                <div class="std_statisLine std_view"><div class="std_statisImg"></div><div class="std_statisNo">111,111,111</div></div>
+                                <div class="std_statisLine std_like"><div class="std_statisImg"></div><div class="std_statisNo">111,111</div></div>
+                                <div class="std_statisLine std_dislike"><div class="std_statisImg"></div><div class="std_statisNo">111,111</div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="std_productLine">
+                        <div class="std_productBox">
+                            <div class="std_imageHolder"><img style="display:block;" src="./defualtProduct.jpg" width="72" height="62"></div>
+                            <div class="std_productDetail">
+                                <div class="std_productTitle">Title</div>
+                                <div class="std_productDescription">Product Description</div>
+                                <div class="std_productInformation">Product Information</div>
+                            </div>
+                            <div class="std_statisticsBox">
+                                <div class="std_statisLine std_reg"><div class="std_statisImg"></div><div class="std_statisNo">2012-01-01</div></div>
+                                <div class="std_statisLine std_view"><div class="std_statisImg"></div><div class="std_statisNo">111,111,111</div></div>
+                                <div class="std_statisLine std_like"><div class="std_statisImg"></div><div class="std_statisNo">111,111</div></div>
+                                <div class="std_statisLine std_dislike"><div class="std_statisImg"></div><div class="std_statisNo">111,111</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="std_Sperator"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
